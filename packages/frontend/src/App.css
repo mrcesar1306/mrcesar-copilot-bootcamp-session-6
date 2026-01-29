@@ -334,6 +334,27 @@ p {
   color: var(--success-color);
 }
 
+/* Overdue Todo Card Styling */
+.todo-card.overdue {
+  border-left: 4px solid var(--danger-color);
+}
+
+.overdue-indicator {
+  color: var(--danger-color);
+  font-weight: 600;
+  font-size: 12px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.overdue-duration {
+  color: var(--text-secondary);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
 .todo-checkbox {
   width: 20px;
   height: 20px;

@@ -26,8 +26,8 @@ This is a monorepo web application:
 
 **Purpose**: Create necessary directory structure for new utility files
 
-- [ ] T001 Create utils directory at packages/frontend/src/utils/
-- [ ] T002 Create __tests__ directory at packages/frontend/src/utils/__tests__/
+- [X] T001 Create utils directory at packages/frontend/src/utils/
+- [X] T002 Create __tests__ directory at packages/frontend/src/utils/__tests__/
 
 ---
 
@@ -37,9 +37,9 @@ This is a monorepo web application:
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T003 [P] Implement isOverdue() function in packages/frontend/src/utils/dateUtils.js
-- [ ] T004 [P] Implement getOverdueDuration() function in packages/frontend/src/utils/dateUtils.js
-- [ ] T005 Add JSDoc comments and export statements in packages/frontend/src/utils/dateUtils.js
+- [X] T003 [P] Implement isOverdue() function in packages/frontend/src/utils/dateUtils.js
+- [X] T004 [P] Implement getOverdueDuration() function in packages/frontend/src/utils/dateUtils.js
+- [X] T005 Add JSDoc comments and export statements in packages/frontend/src/utils/dateUtils.js
 
 **Checkpoint**: Date utilities ready - user story implementation can now begin
 
@@ -59,14 +59,14 @@ This is a monorepo web application:
 
 ### Implementation for User Story 1
 
-- [ ] T006 [US1] Import isOverdue utility into packages/frontend/src/components/TodoCard.js
-- [ ] T007 [US1] Add overdue status calculation in TodoCard component using isOverdue() function
-- [ ] T008 [US1] Add conditional CSS class 'overdue' to todo card container based on overdue status
-- [ ] T009 [US1] Create overdue visual indicator JSX element with ⚠️ emoji and "OVERDUE" text in packages/frontend/src/components/TodoCard.js
-- [ ] T010 [US1] Position overdue indicator below due date display in TodoCard component
-- [ ] T011 [US1] Add CSS styles for .todo-card.overdue class in packages/frontend/src/components/TodoCard.css (or appropriate styles file)
-- [ ] T012 [US1] Add CSS styles for .overdue-indicator class with danger color and proper sizing
-- [ ] T013 [US1] Verify overdue styling works in both light and dark modes using existing CSS custom properties
+- [X] T006 [US1] Import isOverdue utility into packages/frontend/src/components/TodoCard.js
+- [X] T007 [US1] Add overdue status calculation in TodoCard component using isOverdue() function
+- [X] T008 [US1] Add conditional CSS class 'overdue' to todo card container based on overdue status
+- [X] T009 [US1] Create overdue visual indicator JSX element with ⚠️ emoji and "OVERDUE" text in packages/frontend/src/components/TodoCard.js
+- [X] T010 [US1] Position overdue indicator below due date display in TodoCard component
+- [X] T011 [US1] Add CSS styles for .todo-card.overdue class in packages/frontend/src/components/TodoCard.css (or appropriate styles file)
+- [X] T012 [US1] Add CSS styles for .overdue-indicator class with danger color and proper sizing
+- [X] T013 [US1] Verify overdue styling works in both light and dark modes using existing CSS custom properties
 
 **Checkpoint**: At this point, User Story 1 should be fully functional - overdue todos are visually distinguished from non-overdue todos
 
@@ -87,12 +87,12 @@ This is a monorepo web application:
 
 ### Implementation for User Story 2
 
-- [ ] T014 [US2] Import getOverdueDuration utility into packages/frontend/src/components/TodoCard.js
-- [ ] T015 [US2] Calculate overdue duration using getOverdueDuration() when todo is overdue
-- [ ] T016 [US2] Create overdue duration JSX element in TodoCard component
-- [ ] T017 [US2] Position overdue duration text below the overdue indicator in TodoCard
-- [ ] T018 [US2] Add CSS styles for .overdue-duration class with appropriate text styling and color
-- [ ] T019 [US2] Verify duration formatting is correct for all time ranges (days, weeks, months)
+- [X] T014 [US2] Import getOverdueDuration utility into packages/frontend/src/components/TodoCard.js
+- [X] T015 [US2] Calculate overdue duration using getOverdueDuration() when todo is overdue
+- [X] T016 [US2] Create overdue duration JSX element in TodoCard component
+- [X] T017 [US2] Position overdue duration text below the overdue indicator in TodoCard
+- [X] T018 [US2] Add CSS styles for .overdue-duration class with appropriate text styling and color
+- [X] T019 [US2] Verify duration formatting is correct for all time ranges (days, weeks, months)
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work - overdue todos show visual indicator plus duration text
 
@@ -113,13 +113,13 @@ This is a monorepo web application:
 
 ### Implementation for User Story 3
 
-- [ ] T020 [US3] Review date comparison logic in dateUtils.js to ensure it uses current date dynamically (not cached)
-- [ ] T021 [US3] Verify isOverdue() function correctly handles edge case: due date = today (should NOT be overdue)
-- [ ] T022 [US3] Verify isOverdue() function correctly handles edge case: due date = yesterday (should be overdue)
-- [ ] T023 [US3] Verify isOverdue() function correctly handles edge case: no due date (should NOT be overdue)
-- [ ] T024 [US3] Verify isOverdue() function correctly handles edge case: completed todo with past due date (should NOT be overdue)
-- [ ] T025 [US3] Test TodoCard component re-renders correctly when todo completion status changes
-- [ ] T026 [US3] Verify overdue status updates on component re-render without requiring page refresh
+- [X] T020 [US3] Review date comparison logic in dateUtils.js to ensure it uses current date dynamically (not cached)
+- [X] T021 [US3] Verify isOverdue() function correctly handles edge case: due date = today (should NOT be overdue)
+- [X] T022 [US3] Verify isOverdue() function correctly handles edge case: due date = yesterday (should be overdue)
+- [X] T023 [US3] Verify isOverdue() function correctly handles edge case: no due date (should NOT be overdue)
+- [X] T024 [US3] Verify isOverdue() function correctly handles edge case: completed todo with past due date (should NOT be overdue)
+- [X] T025 [US3] Test TodoCard component re-renders correctly when todo completion status changes
+- [X] T026 [US3] Verify overdue status updates on component re-render without requiring page refresh
 
 **Checkpoint**: All user stories should now be independently functional - overdue status is reliable and consistent
 
@@ -129,13 +129,13 @@ This is a monorepo web application:
 
 **Purpose**: Final improvements, documentation, and validation
 
-- [ ] T027 [P] Add accessibility attributes (aria-label) to overdue indicator if needed in packages/frontend/src/components/TodoCard.js
-- [ ] T028 [P] Verify WCAG AA color contrast for danger colors in light and dark modes
-- [ ] T029 [P] Review TodoList component at packages/frontend/src/components/TodoList.js to ensure no changes needed
-- [ ] T030 [P] Review theme.css at packages/frontend/src/styles/theme.css to confirm danger color variables are properly defined
-- [ ] T031 Code cleanup: Remove any console.log statements or debug code
-- [ ] T032 Run quickstart.md validation scenarios to ensure all requirements are met
-- [ ] T033 Update documentation if needed (README, comments)
+- [X] T027 [P] Add accessibility attributes (aria-label) to overdue indicator if needed in packages/frontend/src/components/TodoCard.js
+- [X] T028 [P] Verify WCAG AA color contrast for danger colors in light and dark modes
+- [X] T029 [P] Review TodoList component at packages/frontend/src/components/TodoList.js to ensure no changes needed
+- [X] T030 [P] Review theme.css at packages/frontend/src/styles/theme.css to confirm danger color variables are properly defined
+- [X] T031 Code cleanup: Remove any console.log statements or debug code
+- [X] T032 Run quickstart.md validation scenarios to ensure all requirements are met
+- [X] T033 Update documentation if needed (README, comments)
 
 ---
 
