@@ -5,6 +5,16 @@
 **Status**: Draft  
 **Input**: User description: "Support for Overdue Todo Items: Users need a clear, visual way to identify which todos have not been completed by their due date"
 
+## Clarifications
+
+### Session 2026-01-29
+
+- Q: The spec requires "distinct visual treatment" for overdue todos but doesn't specify the exact UI approach. This impacts both frontend implementation and accessibility testing. → A: Multiple visual indicators (color + icon/emoji + text label like "⚠️ OVERDUE")
+- Q: FR-008 requires displaying "overdue duration" with examples like "2 days overdue" or "1 week overdue", but doesn't specify the exact format rules for all time ranges. → A: Abbreviated format: "1d overdue", "5d overdue", "2w overdue", "3mo overdue"
+- Q: The spec mentions color for overdue indicators but doesn't specify which color(s) to use. This affects UI consistency and user expectations. → A: Use red/danger color from existing design system
+- Q: User Story 2 mentions displaying overdue duration alongside todos, but doesn't specify where in the UI this text should appear relative to other todo card elements (title, due date, checkbox, actions). → A: Display below the due date
+- Q: The spec requires the warning icon/emoji (⚠️) but doesn't specify its position within the todo card layout. → A: Display icon before "OVERDUE" text label
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - Visual Identification of Overdue Todos (Priority: P1)
@@ -34,8 +44,8 @@ Users can see how long a todo has been overdue to understand the urgency level a
 
 **Acceptance Scenarios**:
 
-1. **Given** a user has an overdue todo item, **When** viewing the todo list, **Then** the overdue duration is displayed (e.g., "2 days overdue", "1 week overdue")
-2. **Given** todos with different overdue durations exist, **When** the user views the list, **Then** each displays its specific overdue duration accurately relative to today's date
+1. **Given** a user has an overdue todo item, **When** viewing the todo list, **Then** the overdue duration is displayed in abbreviated format (e.g., "2d overdue", "1w overdue", "3mo overdue")
+2. **Given** todos with different overdue durations exist, **When** the user views the list, **Then** each displays its specific overdue duration accurately relative to today's date using abbreviated format (days for <7 days, weeks for 7-29 days, months for ≥30 days)
 
 ---
 
@@ -69,14 +79,14 @@ Overdue status is calculated dynamically based on the current date, ensuring acc
 ### Functional Requirements
 
 - **FR-001**: System MUST compare each incomplete todo's due date against the current date to determine overdue status
-- **FR-002**: System MUST display overdue todos with a distinct visual treatment that differentiates them from non-overdue todos (color, icon, text styling)
+- **FR-002**: System MUST display overdue todos with multiple visual indicators including: (a) danger color styling (red: #c62828 light mode, #ef5350 dark mode per design system), (b) a warning icon or emoji (e.g., ⚠️) positioned before the text label, and (c) a text label (e.g., "⚠️ OVERDUE") to ensure accessibility for users with color blindness
 - **FR-003**: System MUST only apply overdue visual treatment to todos that are both incomplete AND past their due date
 - **FR-004**: System MUST NOT apply overdue status to todos without a due date
 - **FR-005**: System MUST calculate overdue status dynamically based on current date at time of display
 - **FR-006**: System MUST NOT display overdue indicator for completed todos, regardless of their due date
 - **FR-007**: System MUST treat todos with due date equal to current date as NOT overdue (overdue only when due date is in the past)
-- **FR-008**: System MUST display the overdue duration (e.g., "2 days overdue") for items past their due date
-- **FR-009**: Visual treatment for overdue items MUST be consistent with the application's existing design system and support both light and dark modes
+- **FR-008**: System MUST display the overdue duration in abbreviated format: "Xd overdue" for days (X < 7), "Xw overdue" for weeks (7 ≤ X < 30 days, calculated as days/7 rounded down), "Xmo overdue" for months (X ≥ 30 days, calculated as days/30 rounded down), positioned below the due date in the todo card UI
+- **FR-009**: Visual treatment for overdue items MUST be consistent with the application's existing design system, support both light and dark modes, and meet WCAG AA color contrast requirements for accessibility
 - **FR-010**: System MUST update overdue status when todos transition between complete and incomplete states
 
 ### Key Entities
